@@ -4,7 +4,7 @@ import "./Header.css";
 const Header = () => {
   return (
     <section className="h-wrapper">
-      <div className="h-container flexCenter paddings innerWidth">
+      <div className="flexCenter paddings innerWidth h-container">
         <div>
           <p>Shutto Estate</p>
           {/*<img src={image} alt="header image" width={100} />*/}
