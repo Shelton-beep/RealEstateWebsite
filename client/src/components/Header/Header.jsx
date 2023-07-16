@@ -1,4 +1,4 @@
-//import image from "../../assets/images/house2.jpg";
+import image from "../../assets/images/company1.png";
 import "./Header.css";
 
 const Header = () => {
@@ -7,7 +7,7 @@ const Header = () => {
       <div className="flexCenter paddings innerWidth h-container">
         <div>
           <p>Shutto Estate</p>
-          {/*<img src={image} alt="header image" width={100} />*/}
+          <img src={image} alt="header image" width={100} />
         </div>
 
         <div className="flexCenter h-menu">
