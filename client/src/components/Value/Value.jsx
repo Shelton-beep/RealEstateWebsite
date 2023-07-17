@@ -17,7 +17,7 @@ import image from "../../assets/images/house3.jpg";
 const Value = () => {
   const [className, setClassName] = useState(null);
   return (
-    <section className="v-wrapper">
+    <section className="v-wrapper" id="value">
       <div className="paddings innerWidth flexCenter v-container">
         {/* left side */}
         <div className="v-left">
