@@ -1,23 +1,48 @@
-import image from "../../assets/images/company1.png";
+import { useState } from "react";
 import "./Header.css";
+import image from "../../assets/images/company1.png";
+import { BiMenuAltRight } from "react-icons/bi";
+import { getMenuStyles } from "../../utils/common";
+import useHeaderColor from "../../hooks/useHeaderColor";
+import OutsideClickHandler from "react-outside-click-handler";
 
 const Header = () => {
-  return (
-    <section className="h-wrapper">
-      <div className="flexCenter paddings innerWidth h-container">
-        <div>
-          <p>Shutto Estate</p>
-          <img src={image} alt="header image" width={100} />
-        </div>
+  const [menuOpened, setMenuOpened] = useState(false);
+  const headerColor = useHeaderColor();
 
-        <div className="flexCenter h-menu">
-          <a href="">Residencies</a>
-          <a href="">Our Value</a>
-          <a href="">Contact Us</a>
-          <a href="">Get Started</a>
-          <button className="button">
-            <a href="">Contact</a>
-          </button>
+  return (
+    <section className="h-wrapper" style={{ background: headerColor }}>
+      <div className="flexCenter innerWidth paddings h-container">
+        {/* logo */}
+        <img src={image} alt="logo" width={100} />
+
+        {/* menu */}
+        <OutsideClickHandler
+          onOutsideClick={() => {
+            setMenuOpened(false);
+          }}
+        >
+          <div
+            // ref={menuRef}
+            className="flexCenter h-menu"
+            style={getMenuStyles(menuOpened)}
+          >
+            <a href="#residencies">Residencies</a>
+            <a href="#value">Our Value</a>
+            <a href="#contact-us">Contact Us</a>
+            <a href="#get-started">Get Started</a>
+            <button className="button">
+              <a href="mailto:zainkeepscode@gmail.com">Contact</a>
+            </button>
+          </div>
+        </OutsideClickHandler>
+
+        {/* for medium and small screens */}
+        <div
+          className="menu-icon"
+          onClick={() => setMenuOpened((prev) => !prev)}
+        >
+          <BiMenuAltRight size={30} />
         </div>
       </div>
     </section>
